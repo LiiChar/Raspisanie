@@ -30,7 +30,7 @@ th, td{
 @media (max-width: 450px) {
   table {
     width: 70vw;
-    font-size: 14px;
+    font-size: 8px;
   }
   
   td, th {
