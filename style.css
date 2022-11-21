@@ -29,8 +29,8 @@ th, td{
 
 @media (max-width: 450px) {
   table {
-    width: 55vw;
-    font-size: 2px;
+    width: 70vw;
+    font-size: 14px;
   }
   
   td, th {
