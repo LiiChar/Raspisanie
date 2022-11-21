@@ -1,50 +1,9 @@
 
-
-.day {
-    margin-top: 10px;
-    border: 1px solid red;
-    text-align: center;
-    height: 50px;
-    width: 100px;
-}
-.class {
-    margin-top: 10px;
-    text-align: center;
-    height: 50px;
-    width: 100px;
-    border: 1px solid blue;
-}
-
-.para {
-    margin-top: 10px;
-    border: 1px solid red;
-
-    text-align: center;
-    height: 50px;
-    width: 100px;
-}
-
-.room {
-    margin-top: 10px;
-    border: 1px solid red;
-
-    text-align: center;
-    height: 50px;
-    width: 100px;
-}
-
-.teacher {
-    margin-top: 10px;
-    border: 1px solid red;
-
-    text-align: center;
-    height: 50px;
-    width: 100px;
-}
-
 table{
     border-collapse: collapse;
     border-spacing: 0;
+    width: 50vw;
+
 }
 th, td{
     padding: 10px 20px;
@@ -63,17 +22,24 @@ th, td{
     margin-right: 10px;
 }
 
-#tb {
-  width: 100px;
-}
 
 .red th, td{
   border: 2px solid red;
 }
 
-@media (max-width: 500px) {
-  #body {
-    width: 650px;
+@media (max-width: 450px) {
+  table {
+    width: 30vw;
+    font-size: 0.5px;
+  }
+  
+  td, th {
+    padding: 5px 10px;
+  }
+  
+  .Five {
+    height: 25px;
+    margin-top: 25px;
   }
 }
 

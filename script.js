@@ -1,12 +1,7 @@
-let Class = document.getElementById('class');
-let Day = document.getElementById('day');
 
-let Para = document.getElementById('para');
-let Room = document.getElementById('room');
-let Teacher = document.getElementById('teacher');
-var dateDay = new Date().getDate();
+let dateDay = new Date().getDate();
 let table = document.createElement('table');
-table.id = 'tb'
+table.className= 'tb'
 let thead = document.createElement('thead');
 let tbody = document.createElement('tbody');
 
