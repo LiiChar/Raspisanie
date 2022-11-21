@@ -59,5 +59,22 @@ th, td{
 #body {
     display: flex;
     justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
 }
+
+#tb {
+  width: 100px;
+}
+
+.red th, td{
+  border: 2px solid red;
+}
+
+@media (max-width: 500px) {
+  #body {
+    width: 650px;
+  }
+}
+
 
