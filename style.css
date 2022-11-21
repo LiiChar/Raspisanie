@@ -2,7 +2,7 @@
 table{
     border-collapse: collapse;
     border-spacing: 0;
-    width: 50vw;
+    width: 55vw;
 
 }
 th, td{
@@ -29,8 +29,8 @@ th, td{
 
 @media (max-width: 450px) {
   table {
-    width: 30vw;
-    font-size: 0.5px;
+    width: 55vw;
+    font-size: 2px;
   }
   
   td, th {
