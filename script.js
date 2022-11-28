@@ -1,4 +1,6 @@
 let dateDay = new Date().getDate();
+let dateMonth = +(new Date().getMonth())
++ 1;
 let table = document.createElement('table');
 table.className= 'tb'
 let thead = document.createElement('thead');
@@ -23,6 +25,7 @@ table.appendChild(tbody);
 fetch(`https://erp.nttek.ru/api/schedule/legacy`)
   .then((response) => response.json())
   .then(function(date) {
+    console.log(date)
     CreateTable(date)
   })
   
@@ -53,7 +56,7 @@ Zorro.addEventListener('click', Bgi)
 async function CreateTable(date) {
   for (let i = 0; i < date.length; i++) {
     if (date[i] != undefined) {
-      if (date[i].slice(0, 2) < dateDay) {
+      if (date[i].slice(0, 2) < dateDay && date[i].slice(3, 5) == dateMonth) {
         break;
       }
       let dat = date[i]
