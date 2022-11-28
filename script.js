@@ -28,30 +28,25 @@ fetch(`https://erp.nttek.ru/api/schedule/legacy`)
   
   
 
-function CreateButton() {
-  console.log('CreateButton')
-  let but = document.createElement('button')
-  but.id = 'btn'
-}
-
 
 document.getElementById('body').appendChild(table);
 
 function ShowImg(e) {
-  console.log('Кнопка нажата');
   chooseImg.style.display = 'flex'
   Ob.style.display = 'block'
 }
 
 function Bgi(event) {
-  console.log(event.target.al)
   localStorage.setItem('Akame', `./${event.target.alt}.jpg`)
   img.src = localStorage.getItem('Akame')
   chooseImg.style.display = 'none'
 }
 
 
-
+btn.addEventListener('click', ShowImg)
+Akame.addEventListener('click', Bgi)
+Mikasa.addEventListener('click', Bgi)
+Zorro.addEventListener('click', Bgi)
 
 
 
@@ -82,8 +77,6 @@ async function CreateTable(date) {
           tbody.appendChild(row_6);
           
           let margin = document.createElement('tr');
-          console.log(date[i].slice(0, 2))
-          console.log(dateDay)
           if (date[i].slice(0, 2) == dateDay) {
             row_1.className = "red";
             row_2.className = "red";
@@ -177,13 +170,5 @@ function createRoom(text, num) {
   num.appendChild(heading_4);
 }
 
-fetch(`https://erp.nttek.ru/api/schedule/legacy`)
-  .then((response) => response.json())
-  .then(function(date) {
-    console.log(date)
-  })
 
-btn.addEventListener('click', ShowImg)
-Akame.addEventListener('click', Bgi)
-Mikasa.addEventListener('click', Bgi)
-Zorro.addEventListener('click', Bgi)
+
