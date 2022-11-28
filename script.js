@@ -1,4 +1,3 @@
-
 let dateDay = new Date().getDate();
 let table = document.createElement('table');
 table.className= 'tb'
@@ -32,7 +31,7 @@ async function CreateTable(date) {
         .then(function(data) {
 
           let row_1 = document.createElement('tr');
-
+          row_1.className = 'topBor'
           tbody.appendChild(row_1);
           let row_2 = document.createElement('tr');
           tbody.appendChild(row_2);
@@ -43,7 +42,9 @@ async function CreateTable(date) {
           let row_5 = document.createElement('tr');
           tbody.appendChild(row_5);
           let row_6 = document.createElement('tr');
+          row_6.className = 'roc'
           tbody.appendChild(row_6);
+          
           let margin = document.createElement('tr');
           console.log(date[i].slice(0, 2))
           console.log(dateDay)
