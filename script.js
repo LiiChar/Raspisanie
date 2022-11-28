@@ -11,7 +11,11 @@ const Mukasa = document.getElementById('Mikasa')
 const Zorro = document.getElementById('Zorro')
 const img = document.getElementById('img')
 
-img.src = localStorage.getItem('Akame')
+if (localStorage.getItem('Akame')){
+  img.src = localStorage.getItem('Akame')
+} else {
+  localStorage.setItem('Akame', './Akame.jpg')
+}
 table.appendChild(thead);
 table.appendChild(tbody);
 
@@ -39,23 +43,12 @@ function ShowImg(e) {
   Ob.style.display = 'block'
 }
 
-function Bgi1() {
-  localStorage.setItem('Akame', './Akame.jpg')
+function Bgi(event) {
+  localStorage.setItem('Akame', `./${event.target.alt}.jpg`)
   img.src = localStorage.getItem('Akame')
   chooseImg.style.display = 'none'
 }
 
-function Bgi2() {
-  localStorage.setItem('Akame', './Mikasa.jpg')
-  img.src = localStorage.getItem('Akame')
-  chooseImg.style.display = 'none'
-}
-
-function Bgi3() {
-  localStorage.setItem('Akame', './Zorro.jpg')
-  img.src = localStorage.getItem('Akame')
-  chooseImg.style.display = 'none'
-}
 
 
 
@@ -190,6 +183,6 @@ fetch(`https://erp.nttek.ru/api/schedule/legacy`)
   })
 
 btn.addEventListener('click', ShowImg)
-Akame.addEventListener('click', Bgi1)
-Mikasa.addEventListener('click', Bgi2)
-Zorro.addEventListener('click', Bgi3)
+Akame.addEventListener('click', Bgi)
+Mikasa.addEventListener('click', Bgi)
+Zorro.addEventListener('click', Bgi)
