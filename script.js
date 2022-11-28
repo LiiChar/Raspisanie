@@ -11,9 +11,11 @@ const Mukasa = document.getElementById('Mikasa')
 const Zorro = document.getElementById('Zorro')
 const img = document.getElementById('img')
 
-
-img.src = localStorage.getItem('Akame')
-
+if (localStorage.getItem('Akame')){
+  img.src = localStorage.getItem('Akame')
+} else {
+  localStorage.setItem('Akame', './Akame.jpg')
+}
 table.appendChild(thead);
 table.appendChild(tbody);
 
@@ -42,7 +44,7 @@ function ShowImg(e) {
 }
 
 function Bgi(event) {
-  console.log(event.target.alt)
+  console.log(event.target.al)
   localStorage.setItem('Akame', `./${event.target.alt}.jpg`)
   img.src = localStorage.getItem('Akame')
   chooseImg.style.display = 'none'
