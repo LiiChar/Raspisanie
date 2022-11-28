@@ -64,6 +64,38 @@ tbody tr:nth-child(even) {
   background-color:  rgba(255, 255, 255, 0.8);
 }
 
+#btn {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin-left: 20px;
+  overflow: hidden;
+  background-image: url("./Chopper.jpg");
+  background-size: 100% 60px;
+  background-repeat: no-repeat;
+}
+
+#chooseImg {
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+}
+
+#Ob {
+  position: relative;
+  left: 37%;
+  top: 10%;
+  z-index: 101;
+  display: none;
+  height: 60vh;
+  width: 50vw;
+}
+
+
 @media (max-width: 450px) {
   table {
     width: 70vw;

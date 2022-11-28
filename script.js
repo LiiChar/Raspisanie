@@ -3,12 +3,17 @@ let table = document.createElement('table');
 table.className= 'tb'
 let thead = document.createElement('thead');
 let tbody = document.createElement('tbody');
+const btn = document.getElementById('btn')
+const chooseImg = document.getElementById('chooseImg')
+const Ob = document.getElementById('Ob')
+const Akame = document.getElementById('Akame')
+const Mukasa = document.getElementById('Mikasa')
+const Zorro = document.getElementById('Zorro')
+const img = document.getElementById('img')
 
+img.src = localStorage.getItem('Akame')
 table.appendChild(thead);
 table.appendChild(tbody);
-
-document.getElementById('body').appendChild(table);
-
 
 
 fetch(`https://erp.nttek.ru/api/schedule/legacy`)
@@ -16,6 +21,43 @@ fetch(`https://erp.nttek.ru/api/schedule/legacy`)
   .then(function(date) {
     CreateTable(date)
   })
+  
+  
+
+function CreateButton() {
+  console.log('CreateButton')
+  let but = document.createElement('button')
+  but.id = 'btn'
+}
+
+
+document.getElementById('body').appendChild(table);
+
+function ShowImg(e) {
+  console.log('Кнопка нажата');
+  chooseImg.style.display = 'flex'
+  Ob.style.display = 'block'
+}
+
+function Bgi1() {
+  localStorage.setItem('Akame', './Akame.jpg')
+  img.src = localStorage.getItem('Akame')
+  chooseImg.style.display = 'none'
+}
+
+function Bgi2() {
+  localStorage.setItem('Akame', './Mikasa.jpg')
+  img.src = localStorage.getItem('Akame')
+  chooseImg.style.display = 'none'
+}
+
+function Bgi3() {
+  localStorage.setItem('Akame', './Zorro.jpg')
+  img.src = localStorage.getItem('Akame')
+  chooseImg.style.display = 'none'
+}
+
+
 
 
 
@@ -146,3 +188,8 @@ fetch(`https://erp.nttek.ru/api/schedule/legacy`)
   .then(function(date) {
     console.log(date)
   })
+
+btn.addEventListener('click', ShowImg)
+Akame.addEventListener('click', Bgi1)
+Mikasa.addEventListener('click', Bgi2)
+Zorro.addEventListener('click', Bgi3)
