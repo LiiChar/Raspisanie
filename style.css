@@ -66,9 +66,9 @@ tbody tr:nth-child(even) {
 
 #btn {
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  margin-left: 20px;
+  height: 100px;
+  width: 100px;
+  margin-left: 190px;
   overflow: hidden;
   background-image: url("./Chopper.jpg");
   background-size: 100% 60px;
@@ -109,6 +109,13 @@ tbody tr:nth-child(even) {
   .Five {
     height: 25px;
     margin-top: 25px;
+  }
+  
+  #btn {
+    margin-left: 20px;
+    height: 50px;
+    width: 50px;
+    background-size: 100% 600px;
   }
 }
 
