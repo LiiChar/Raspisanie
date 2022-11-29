@@ -31,10 +31,6 @@ tbody th:nth-child() {
   width: 10px;
 }
 
-#widh {
-  width: 80px;
-  white-space: nowrap;
-}
 
 .Five {
   height: 50px;
@@ -148,7 +144,6 @@ td {
   }
 
   tbody th:nth-child(1) {
-    width: 30px;
     white-space: nowrap;
   }
 
