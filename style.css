@@ -79,7 +79,7 @@ td {
   position: relative;
   margin-top: 20px;
   top: 100%;
-  left: 50%;
+  left: 49%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   height: 100px;
@@ -137,7 +137,7 @@ td {
 
 @media (max-width: 450px) {
   table {
-    width: 90vw;
+    width: 97vw;
     font-size: 8px;
   }
 
@@ -147,7 +147,7 @@ td {
   }
 
   #img {
-    width: 90vw;
+    width: 100vw;
     margin-left: 5%;
     margin-right: 5%;
   }
