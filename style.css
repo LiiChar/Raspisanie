@@ -1,19 +1,19 @@
-
 body {
   margin: 0px;
   padding: 0px;
 }
 
-table{
-    margin-top: 10px;
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 45vw;
-
+table {
+  margin-top: 10px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 51.5vw;
+  table-layout: fixed;
 }
 
 
-tb, th{
+tb,
+th {
   padding: 10px 20px;
 }
 
@@ -23,21 +23,25 @@ tbody tr:nth-child(odd) {
 }
 
 tbody tr:nth-child(even) {
-  background-color:  rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
-#widh{
+tbody th:nth-child() {
+  width: 10px;
+}
+
+#widh {
   width: 80px;
-  white-space:nowrap;
+  white-space: nowrap;
 }
 
 .Five {
-    height: 50px; 
-    margin-top: 50px;
-    border-top: 1px solid #F3F3F3;
+  height: 50px;
+  margin-top: 50px;
+  border-top: 1px solid #F3F3F3;
 }
 
-.roc{
+.roc {
   border-bottom: 1px solid #F3F3F3;
 }
 
@@ -50,23 +54,24 @@ tbody tr:nth-child(even) {
 }
 
 #body {
-    display: flex;
-    justify-content: center;
-    margin-left: 10px;
-    margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 
-.red th, td {
+.red th,
+td {
   border: 1px solid rgba(243, 243, 243, 0.8);
 }
 
-.red th:nth-child(odd){
+.red th:nth-child(odd) {
   background-color: rgba(243, 243, 243, 0.8);
 }
 
 .red th:nth-child(even) {
-  background-color:  rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
 
 }
 
@@ -84,7 +89,7 @@ tbody tr:nth-child(even) {
 }
 
 
-#img{
+#img {
   position: fixed;
   margin-left: 24%;
   margin-right: 24%;
@@ -120,7 +125,7 @@ tbody tr:nth-child(even) {
   margin-left: 30px;
 }
 
-.Anime:first-child{
+.Anime:first-child {
   margin-left: 0px;
 }
 
@@ -130,31 +135,33 @@ tbody tr:nth-child(even) {
 
 @media (max-width: 450px) {
   table {
-    width: 70vw;
+    width: 90vw;
     font-size: 8px;
   }
-  
-  td, th {
+
+  td,
+  th {
     padding: 5px 10px;
   }
 
-  #img{
+  #img {
     width: 90vw;
     margin-left: 5%;
     margin-right: 5%;
   }
-  
+
   .Five {
     height: 25px;
     margin-top: 25px;
   }
-  
+
   #btn {
     margin-left: 20px;
     height: 50px;
     width: 50px;
     background-size: 100% 60px;
   }
+
   .Anime {
 
     height: 150px;
@@ -169,5 +176,3 @@ tbody tr:nth-child(even) {
     flex-wrap: wrap;
   }
 }
-
-
