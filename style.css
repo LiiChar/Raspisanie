@@ -32,6 +32,8 @@ tbody th:nth-child() {
 }
 
 
+
+
 .Five {
   height: 50px;
   margin-top: 50px;
@@ -147,6 +149,10 @@ td {
     white-space: nowrap;
   }
 
+  tbody th:nth-child(3) {
+    padding: 0;
+  }
+
   #img {
     width: 100vw;
     margin-left: 0;
@@ -176,5 +182,11 @@ td {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 350px) {
+  tbody th:nth-child(3) {
+    font-size: 7px;
   }
 }
