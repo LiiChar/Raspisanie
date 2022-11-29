@@ -148,6 +148,17 @@ td {
   tbody th:nth-child(1) {
     white-space: nowrap;
   }
+  
+  tbody th:nth-child(1) {
+    white-space: nowrap;
+    padding: 5px 10px;
+    padding-right: 2px;
+  }
+
+    tbody th:nth-child(2) {
+    white-space: nowrap;
+    padding-left: 0px;
+  }
 
   tbody th:nth-child(3) {
     padding: 0;
