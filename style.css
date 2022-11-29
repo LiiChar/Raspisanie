@@ -4,6 +4,7 @@ body {
 }
 
 table {
+  font-size: 14px;
   margin-top: 10px;
   border-collapse: collapse;
   border-spacing: 0;
@@ -137,7 +138,7 @@ td {
 
 @media (max-width: 450px) {
   table {
-    width: 97vw;
+    width: 95vw;
     font-size: 8px;
   }
 
@@ -146,10 +147,15 @@ td {
     padding: 5px 10px;
   }
 
+  tbody th:nth-child(1) {
+    width: 30px;
+    white-space: nowrap;
+  }
+
   #img {
     width: 100vw;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .Five {
@@ -158,7 +164,6 @@ td {
   }
 
   #btn {
-    margin-left: 20px;
     height: 50px;
     width: 50px;
     background-size: 100% 60px;
