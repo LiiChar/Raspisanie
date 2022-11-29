@@ -161,7 +161,7 @@ td {
   }
 
   tbody th:nth-child(3) {
-    padding-right: 3px;
+    padding: 0;
   }
 
   #img {
