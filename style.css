@@ -8,7 +8,7 @@ table{
     margin-top: 10px;
     border-collapse: collapse;
     border-spacing: 0;
-    width: 55vw;
+    width: 45vw;
 
 }
 
@@ -26,6 +26,11 @@ tbody tr:nth-child(even) {
   background-color:  rgba(255, 255, 255, 0.8);
 }
 
+#widh{
+  width: 80px;
+  white-space:nowrap;
+}
+
 .Five {
     height: 50px; 
     margin-top: 50px;
@@ -41,7 +46,6 @@ tbody tr:nth-child(even) {
 }
 
 #img {
-  position: absolute;
   z-index: -1;
 }
 
@@ -63,38 +67,65 @@ tbody tr:nth-child(even) {
 
 .red th:nth-child(even) {
   background-color:  rgba(255, 255, 255, 0.8);
+
 }
 
 #btn {
+  position: fixed;
+  top: 10%;
+  left: 10%;
   border-radius: 50%;
   height: 100px;
   width: 100px;
-  margin-left: 190px;
   overflow: hidden;
   background-image: url("./Chopper.jpg");
   background-size: 100% 150px;
   background-repeat: no-repeat;
 }
 
+
+#img{
+  position: fixed;
+  margin-left: 24%;
+  margin-right: 24%;
+}
+
+
 #chooseImg {
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 100;
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
   background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
 }
 
 #Ob {
-  position: relative;
-  left: 37%;
-  top: 5%;
-  z-index: 101;
-  display: none;
-  height: 60vh;
-  width: 50vw;
+  z-index: -1;
+  visibility: hidden;
+  height: 100%;
+  width: 30vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.Anime {
+  height: 40vh;
+  width: 20vw;
+  margin-left: 30px;
+}
+
+.Anime:first-child{
+  margin-left: 0px;
+}
+
+
+
 
 
 @media (max-width: 450px) {
@@ -105,6 +136,12 @@ tbody tr:nth-child(even) {
   
   td, th {
     padding: 5px 10px;
+  }
+
+  #img{
+    width: 90vw;
+    margin-left: 5%;
+    margin-right: 5%;
   }
   
   .Five {
@@ -119,14 +156,17 @@ tbody tr:nth-child(even) {
     background-size: 100% 60px;
   }
   .Anime {
+
     height: 150px;
     width: 100px;
+    margin-left: 0px;
   }
-  
+
   #Ob {
-    position: relative;
-    left: 37%;
-    top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
   }
 }
 
