@@ -208,13 +208,14 @@ function CalcTimePara(text, Pare) {
       return `10:00 - 11:20`
     } else if (text == 3) {
       return `12:00 - 13:20`
-    } else if (text == 0) {
-      return `13:30 - 14:10`
     } else if (text == 4) {
-      return `14:20 - 15:50`
+      return `13:30 - 14:50`
     } else if (text == 5) {
-      return `16:00 - 17:20`
+      return `15:00 - 16:20`
+    } else if (text == 6) {
+      return `16:30 - 17:50`
     }
+
   } else {
     if (text == 1) {
       return `8:30 - 9:50`
@@ -222,12 +223,12 @@ function CalcTimePara(text, Pare) {
       return `10:00 - 11:20`
     } else if (text == 3) {
       return `12:00 - 13:20`
+    } else if (text == 0) {
+      return `13:30 - 14:10`
     } else if (text == 4) {
-      return `13:30 - 14:50`
+      return `14:20 - 15:50`
     } else if (text == 5) {
-      return `15:00 - 16:20`
-    } else if (text == 6) {
-      return `16:30 - 17:50`
+      return `16:00 - 17:20`
     }
   }
 }
