@@ -170,7 +170,7 @@ function createDay(text, num) {
 
 }
 
-function createClass(text, num, Para) {
+function createClass(text, num, Pare) {
   let heading_1 = document.createElement('th');
   let TimePara = document.createElement('p')
   TimePara.innerHTML = CalcTimePara(text, Pare)
