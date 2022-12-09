@@ -1,0 +1,203 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+table {
+  font-size: 14px;
+  margin-top: 10px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 51.5vw;
+  table-layout: fixed;
+}
+
+
+tb,
+th {
+  padding: 10px 20px;
+}
+
+
+tbody tr:nth-child(odd) {
+  background-color: rgba(243, 243, 243, 0.8);
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+tbody th:nth-child() {
+  width: 10px;
+}
+
+
+
+
+.Five {
+  height: 50px;
+  margin-top: 50px;
+  border-top: 1px solid #F3F3F3;
+}
+
+.roc {
+  border-bottom: 1px solid #F3F3F3;
+}
+
+.topBor {
+  border-top: 1px solid #F3F3F3;
+}
+
+#img {
+  z-index: -1;
+}
+
+#body {
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+.red th,
+td {
+  border: 1px solid rgba(243, 243, 243, 0.8);
+}
+
+.red th:nth-child(odd) {
+  background-color: rgba(243, 243, 243, 0.8);
+}
+
+.red th:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.8);
+
+}
+
+#btn {
+  position: relative;
+  margin-top: 20px;
+  top: 100%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  background-image: url("./Chopper.jpg");
+  background-size: 100% 150px;
+  background-repeat: no-repeat;
+}
+
+
+#img {
+  position: fixed;
+  margin-left: 24%;
+  margin-right: 24%;
+}
+
+
+#chooseImg {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+}
+
+#Ob {
+  z-index: -1;
+  visibility: hidden;
+  height: 100%;
+  width: 30vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Anime {
+  height: 40vh;
+  width: 20vw;
+  margin-left: 30px;
+}
+
+.Anime:first-child {
+  margin-left: 0px;
+}
+
+
+
+
+
+@media (max-width: 450px) {
+  table {
+    width: 95vw;
+    font-size: 8px;
+  }
+
+  td,
+  th {
+    padding: 5px 10px;
+  }
+
+  tbody th:nth-child(1) {
+    white-space: nowrap;
+  }
+  
+  tbody th:nth-child(1) {
+    white-space: nowrap;
+    padding: 5px 10px;
+    padding-right: 2px;
+  }
+
+    tbody th:nth-child(2) {
+    white-space: nowrap;
+    padding-left: 0px;
+  }
+
+  tbody th:nth-child(3) {
+    padding: 0;
+  }
+
+  #img {
+    width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .Five {
+    height: 25px;
+    margin-top: 25px;
+  }
+
+  #btn {
+    height: 50px;
+    width: 50px;
+    background-size: 100% 60px;
+  }
+
+  .Anime {
+
+    height: 150px;
+    width: 100px;
+    margin-left: 0px;
+  }
+
+  #Ob {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 350px) {
+  tbody th:nth-child(3) {
+    font-size: 7px;
+  }
+}
