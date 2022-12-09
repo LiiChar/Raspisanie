@@ -209,11 +209,11 @@ function CalcTimePara(text, Pare) {
     } else if (text == 3) {
       return `12:00 - 13:20`
     } else if (text == 4) {
-      return `13:30 - 14:50`
+      return `13:40 - 15:00`
     } else if (text == 5) {
-      return `15:00 - 16:20`
+      return `15:10 - 16:30`
     } else if (text == 6) {
-      return `16:30 - 17:50`
+      return `16:40 - 18:00`
     }
 
   } else {
