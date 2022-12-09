@@ -199,8 +199,8 @@ function createRoom(text, num) {
   num.appendChild(heading_4);
 }
 
-function CalcTimePara(text, Para) {
-  console.log(Para);
+function CalcTimePara(text, Pare) {
+  console.log(Pare);
   if (Para == 1) {
     if (text == 1) {
       return `8:30 - 9:50`
