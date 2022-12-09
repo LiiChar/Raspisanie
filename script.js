@@ -201,7 +201,7 @@ function createRoom(text, num) {
 
 function CalcTimePara(text, Pare) {
   console.log(Pare);
-  if (Para == 1) {
+  if (Pare == 1) {
     if (text == 1) {
       return `8:30 - 9:50`
     } else if (text == 2) {
