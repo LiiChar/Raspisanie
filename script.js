@@ -173,7 +173,7 @@ function createDay(text, num) {
 function createClass(text, num, Para) {
   let heading_1 = document.createElement('th');
   let TimePara = document.createElement('p')
-  TimePara.innerHTML = CalcTimePara(text, Para)
+  TimePara.innerHTML = CalcTimePara(text, Pare)
   TimePara.id = 'widh'
   heading_1.innerHTML = text;
   num.appendChild(heading_1);
