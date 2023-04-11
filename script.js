@@ -4,19 +4,16 @@ let dateMonth = +(new Date().getMonth())
 let table = document.createElement('table');
 let thead = document.createElement('thead');
 let tbody = document.createElement('tbody');
-const btn = document.getElementById('btn')
-const chooseImg = document.getElementById('chooseImg')
-const Ob = document.getElementById('Ob')
-const Akame = document.getElementById('Akame')
-const Mukasa = document.getElementById('Mikasa')
-const Zorro = document.getElementById('Zorro')
-const img = document.getElementById('img')
+const body = document.getElementById('body')
+let loading = document.querySelector('.spinner')
+const addBackground = document.querySelector('.addBackground')
+const insertBgWrap = document.querySelector('.insertBgWrap')
+const mainInsertButton = document.querySelector('.mainInsertButton')
+const mainInsertInput = document.querySelector('.mainInsertInput')
+const chooseImg = document.querySelector('#chooseImg')
 
-if (localStorage.getItem('Akame')) {
-  img.src = localStorage.getItem('Akame')
-} else {
-  localStorage.setItem('Akame', './Akame.jpg')
-}
+let isLoading = true;
+
 table.appendChild(thead);
 table.appendChild(tbody);
 
@@ -24,45 +21,14 @@ table.appendChild(tbody);
 fetch(`https://erp.nttek.ru/api/schedule/legacy`)
   .then((response) => response.json())
   .then(function (date) {
-    console.log(date)
+    isLoading = false
     CreateTable(date)
   })
 
 
+body.appendChild(table);
 
-
-document.getElementById('body').appendChild(table);
-
-function ShowImg(e) {
-  chooseImg.style.visibility = 'visible'
-  chooseImg.style.zIndex = '100'
-  Ob.style.visibility = 'visible'
-  Ob.style.zIndex = '101'
-}
-
-function Bgi(event) {
-  localStorage.setItem('Akame', `./${event.target.alt}.jpg`)
-  img.src = localStorage.getItem('Akame')
-  chooseImg.style.visibility = 'hidden'
-  chooseImg.style.zIndex = '-1'
-  Ob.style.visibility = 'hidden'
-  Ob.style.zIndex = '-1'
-}
-
-function unShow() {
-  chooseImg.style.visibility = 'hidden'
-  chooseImg.style.zIndex = '-1'
-  Ob.style.visibility = 'hidden'
-  Ob.style.zIndex = '-1'
-}
-
-chooseImg.addEventListener('click', unShow)
-btn.addEventListener('click', ShowImg)
-Akame.addEventListener('click', Bgi)
-Mikasa.addEventListener('click', Bgi)
-Zorro.addEventListener('click', Bgi)
-
-
+// выпадающие таюлицы при нажатии даты, стандартно открывается сейгодняшняя дата
 
 async function CreateTable(date) {
   for (let i = 0; i < date.length; i++) {
@@ -70,166 +36,139 @@ async function CreateTable(date) {
       if (date[i].slice(0, 2) < dateDay && date[i].slice(3, 5) == dateMonth) {
         break;
       }
-      let dat = date[i]
+      let dat = JSON.stringify(date[i])
       let a = await fetch(`https://erp.nttek.ru/api/schedule/legacy/${date[i].slice(6, 10)}-${date[i].slice(3, 5)}-${date[i].slice(0, 2)}/group/3ИС3`)
         .then((response) => response.json())
         .then(function (data) {
+          let hidden = document.createElement('div')
+          hidden.innerHTML = `<div class='data' style='display: flex;'>${JSON.parse(dat)}</div>`
+          hidden.className = 'hid'
+          tbody.appendChild(hidden);
 
-          let Pari = [data.schedule]
+          hidden.addEventListener('click', (e) => unHidden(e, i))
 
-          let row_1 = document.createElement('tr');
-          row_1.className = 'topBor'
-          tbody.appendChild(row_1);
-          let row_2 = document.createElement('tr');
-          tbody.appendChild(row_2);
-          let row_3 = document.createElement('tr');
-          tbody.appendChild(row_3);
-          let row_4 = document.createElement('tr');
-          tbody.appendChild(row_4);
-          let row_5 = document.createElement('tr');
-          tbody.appendChild(row_5);
-          let row_6 = document.createElement('tr');
-          row_6.className = 'roc'
-          tbody.appendChild(row_6);
 
-          let margin = document.createElement('tr');
-          if (date[i].slice(0, 2) == dateDay) {
-            row_1.className = "red";
-            row_2.className = "red";
-            row_3.className = "red";
-            row_4.className = "red";
-            row_5.className = "red";
-            row_6.className = "red";
+          let Pari = data.schedule
+          for (let q = 0; q < Pari.length; q++) {
+            let row = document.createElement('tr');
+            row.style.height = 'auto'
+            row.style.width = '70vw'
+            if (dat.slice(1, 3) != dateDay) {
+              row.style.display = 'none'
+            }
+            row.className = 'r' + i
+            hidden.appendChild(row);
+            createDay(JSON.parse(dat), row)
+            createClass(Pari[q].lesson, row);
+            createPara(Pari[q].name, row);
+            createTeacher(Pari[q].teachers, row);
+            createRoom(Pari[q].rooms, row);
+
           }
 
-          function Prov() {
-            for (let i = 0; i < Pari.length; i++) {
-              if (!(Pari[i].includes('Кл. час'))) {
-                return 1;
-              } else {
-                return 2;
-              }
-            }
-          }
-
-          margin.className = "Five";
-          tbody.appendChild(margin);
-          for (let j = 0; j < data.schedule.length; j++) {
-            if (j == 0) {
-              createDay((JSON.stringify(dat)), row_1)
-              createClass((JSON.stringify(data.schedule[j].lesson)), row_1, Prov());
-              createPara((JSON.stringify(data.schedule[j].name)), row_1);
-              createTeacher((JSON.stringify(data.schedule[j].teachers)), row_1);
-              createRoom((JSON.stringify(data.schedule[j].rooms)), row_1);
-            }
-            if (j == 1) {
-              createDay((JSON.stringify(dat)), row_2)
-              createClass(JSON.stringify(data.schedule[j].lesson), row_2, Prov());
-              createPara((JSON.stringify(data.schedule[j].name)), row_2);
-              createTeacher((JSON.stringify(data.schedule[j].teachers)), row_2);
-              createRoom((JSON.stringify(data.schedule[j].rooms)), row_2);
-            }
-
-            if (j == 2) {
-              createDay((JSON.stringify(dat)), row_3)
-              createClass((JSON.stringify(data.schedule[j].lesson)), row_3, Prov());
-              createPara((JSON.stringify(data.schedule[j].name)), row_3);
-              createTeacher((JSON.stringify(data.schedule[j].teachers)), row_3);
-              createRoom((JSON.stringify(data.schedule[j].rooms)), row_3);
-            }
-
-            if (j == 3) {
-              createDay((JSON.stringify(dat)), row_4)
-              createClass((JSON.stringify(data.schedule[j].lesson)), row_4), Prov();
-              createPara((JSON.stringify(data.schedule[j].name)), row_4);
-              createTeacher((JSON.stringify(data.schedule[j].teachers)), row_4);
-              createRoom((JSON.stringify(data.schedule[j].rooms)), row_4);
-            }
-
-            if (j == 4) {
-              createDay((JSON.stringify(dat)), row_5)
-              createClass((JSON.stringify(data.schedule[j].lesson)), row_5, Prov());
-              createPara((JSON.stringify(data.schedule[j].name)), row_5);
-              createTeacher((JSON.stringify(data.schedule[j].teachers)), row_5);
-              createRoom((JSON.stringify(data.schedule[j].rooms)), row_5);
-            }
-
-
-
-          }
+          let margin = document.createElement('div')
+          margin.style.marginBottom = '50px'
+          tbody.appendChild(margin)
         })
-
     }
+
   }
+  loading.style.display = 'none'
+  table.style.display = 'block'
 }
 
 function createDay(text, num) {
   let heading_1 = document.createElement('th');
-  heading_1.innerHTML = text;
+  heading_1.innerText = text;
   num.appendChild(heading_1);
 
 }
 
-function createClass(text, num, Pare) {
+function createClass(text, num) {
   let heading_1 = document.createElement('th');
   let TimePara = document.createElement('p')
-  TimePara.innerHTML = CalcTimePara(text, Pare)
+  TimePara.innerText = CalcTimePara(text)
   TimePara.id = 'widh'
-  heading_1.innerHTML = text;
+  heading_1.innerText = text;
   num.appendChild(heading_1);
   heading_1.appendChild(TimePara)
 }
 
 function createPara(text, num) {
   let heading_2 = document.createElement('th');
-  heading_2.innerHTML = text;
+  heading_2.innerText = text;
   num.appendChild(heading_2);
 
 }
 
 function createTeacher(text, num) {
   let heading_3 = document.createElement('th');
-  heading_3.innerHTML = text;
+  text = text.join(',')
+  heading_3.innerText = text.includes(',') ? text.replace(',', '/') : text;
   num.appendChild(heading_3);
 }
 
 function createRoom(text, num) {
   let heading_4 = document.createElement('th');
-  heading_4.innerHTML = text;
+  heading_4.innerText = text;
   num.appendChild(heading_4);
 }
 
-function CalcTimePara(text, Pare) {
-  console.log(Pare);
-  if (Pare == 1) {
-    if (text == 1) {
-      return `8:30 - 9:50`
-    } else if (text == 2) {
-      return `10:00 - 11:20`
-    } else if (text == 3) {
-      return `12:00 - 13:20`
-    } else if (text == 4) {
-      return `13:40 - 15:00`
-    } else if (text == 5) {
-      return `15:10 - 16:30`
-    } else if (text == 6) {
-      return `16:40 - 18:00`
-    }
-
-  } else {
-    if (text == 1) {
-      return `8:30 - 9:50`
-    } else if (text == 2) {
-      return `10:00 - 11:20`
-    } else if (text == 3) {
-      return `12:00 - 13:20`
-    } else if (text == 0) {
-      return `13:30 - 14:10`
-    } else if (text == 4) {
-      return `14:20 - 15:50`
-    } else if (text == 5) {
-      return `16:00 - 17:20`
-    }
+function CalcTimePara(text) {
+  if (text == "") {
+    return ''
+  }
+  else if (text == "1-2") {
+    return `8:30 - 9:50`
+  } else if (text == '3') {
+    return `10:00 - 10:40`
+  } else if (text == '4') {
+    return `10:40 - 11:20`
+  } else if (text == '5') {
+    return `11:30 - 12:10 `
+  } else if (text == '6-7') {
+    return `12:10 - 13:30 `
+  } else if (text == '8-9') {
+    return `13:40 - 15:00 `
+  } else if (text == '10-11') {
+    return `15:10 - 16:30`
+  } else if (text == '12-13') {
+    return `16:40 - 18:00`
+  } else if (text == '14-15') {
+    return `16:40 - 18:00`
   }
 }
 
+addBackground.addEventListener('click', (e) => {
+  if (insertBgWrap.style.display = 'none') {
+    insertBgWrap.style.display = 'flex'
+  } else {
+    insertBgWrap.style.display = 'none'
+  }
+
+})
+
+mainInsertButton.addEventListener('click', (e) => {
+  chooseImg.style.visibility = 'visible'
+  console.log(mainInsertInput.value);
+  chooseImg.src = mainInsertInput.value
+  insertBgWrap.style.display = 'none'
+})
+
+
+function unHidden(e, i) {
+  const r = document.querySelectorAll('.r' + i)
+  console.log(e.target.className);
+  if (e.target.className == 'data') {
+    if (r[0].style.display == 'table-row') {
+      r.forEach(element => {
+        element.style.display = 'none'
+      });
+    } else {
+      r.forEach(element => {
+        element.style.display = 'table-row'
+      });
+    }
+  }
+
+}

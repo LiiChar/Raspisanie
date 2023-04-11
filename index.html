@@ -11,17 +11,24 @@
 </head>
 
 <body>
-    <img id="img" width="52%" height="100%" src="" alt="">
+    <img id="chooseImg" src="" alt="">
+    <div class="addBackground">Добавить задний фон</div>
     <div id="body"></div>
-    <button id="btn" type="text"></button>
-    <div id="chooseImg">
-        <div id="Ob">
-            <img class="Anime" id="Akame" width="30vw" height="60vh" src="./Akame.jpg" alt="Akame">
-            <img class="Anime" id="Mikasa" width="30vw" height="60vh" src="./Mikasa.jpg" alt="Mikasa">
-            <img class="Anime" id="Zorro" width="30vw" height="60vh" src="./Zorro.jpg" alt="Zorro">
+    <div class="spinner">
+        <div class="blob top"></div>
+        <div class="blob bottom"></div>
+        <div class="blob left"></div>
+        
+        <div class="blob move-blob"></div>
+      </div>
+      <div class="insertBgWrap">
+        <div class="mainInsertWrap">
+            <div>Вставте ссылку на излбражение</div>
+            <input type="text" class="mainInsertInput">
+            <button class="mainInsertButton" type="button">задать</button>
         </div>
-    </div>
-    <script src="script.js"></script>
+      </div>
+    <script src="./script.js"></script>
 </body>
 
 </html>
