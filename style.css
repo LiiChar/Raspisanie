@@ -217,26 +217,58 @@ table {
   display: none;
   justify-content: center;
   align-items: center;
-  width: 98vw;
+  flex-direction: column;
+
+  width: 100vw;
   height: 100vh;
+}
+
+button {
+  margin-top: 5px;
+  display: inline-block;
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  text-decoration: none;
+  user-select: none;
+  padding: .5em 2em;
+  outline: none;
+  border: 2px solid;
+  border-radius: 1px;
+  transition: 0.2s;
+} 
+button:hover { background: rgba(255,255,255,.2); }
+button:active { background: white; }
+
+textarea {
+  font-size: 12px;
+  font-family: Arial;
+  border-radius: 8px;
+  resize: none;
+  padding: 5px;
+  overflow: hidden;
+  box-sizing: border-box;
+  height: 40px;
+  min-height: 40px;
+  width: 400px;
+  margin-bottom: 15px;
 }
 
 .insertBgWrap1 {
   position: absolute;
   top: 0;
   background: rgba(226, 226, 226, 0.637);
-  z-index: 10000;
   display: none;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
-  width: 98vw;
+  width: 100vw;
   height: 100vh;
 }
 
 .mainInsertWrap {
   background:rgba(255, 255, 255) ;
-  width: 40%;
-  height: 10%;
+  width: 100vw;
+  height: 100vh;
 }
 
 .insertGroup {

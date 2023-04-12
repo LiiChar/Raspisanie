@@ -15,7 +15,7 @@ const chooseImg = document.querySelector('#chooseImg')
 const openMenu = document.querySelector('.openMenu')
 const changeGroup = document.querySelector('.changeGroup')
 const menu = document.querySelector('.menu')
-const group = localStorage.getItem('group')
+const group = localStorage.getItem('group') || 'https://klike.net/uploads/posts/2020-01/1579682483_14.jpg'
 
 const groups = ['Б10','1Б2', '1ГД11', '1ИС3', '1ИС6', '1ИС9', '1ПД1',
 '1ПД7', '1Ф8', '23Б10', '2Б2', '2ГД11', '2ИС3', '2ИС6',
@@ -69,6 +69,8 @@ textGroup.addEventListener('click', () => {
 
 if (localStorage.getItem('image')) {
   chooseImg.src = localStorage.getItem('image')
+} else {
+  chooseImg.src = 'https://klike.net/uploads/posts/2020-01/1579682483_14.jpg'
 }
 
 if (!localStorage.getItem('group')) {
@@ -206,6 +208,7 @@ mainInsertButton.addEventListener('click', (e) => {
   localStorage.setItem('image', mainInsertInput.value)
   chooseImg.src = mainInsertInput.value
   insertBgWrap.style.display = 'none'
+  window.location.reload()
 })
 
 
