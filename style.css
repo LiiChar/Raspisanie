@@ -29,10 +29,21 @@ table {
   border-spacing: 0;
   height: max-content;
   width: 100%;
-  /* table-layout: fixed; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
   display: none;
   animation: ani 0.3s forwards;
 }
+
+@media only screen and (max-width: 480px) {
+    /* horizontal scrollbar for tables if mobile screen */
+    .tablemobile {
+        overflow-x: auto;
+        display: block;
+    }
+}
+
 
 
 @keyframes ani {
@@ -249,10 +260,8 @@ table {
 tr,
 th {
   padding: 10px 20px;
-}
+  white-space: pre-wrap;
 
-td {
-  display:inline-block;
 }
 
 
