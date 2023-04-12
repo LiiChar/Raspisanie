@@ -3,6 +3,10 @@ body {
   padding: 0px;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .openMenu {
   display: none;
   position: absolute;
@@ -20,13 +24,29 @@ body {
 
 table {
   font-size: 14px;
-  margin: 50px;
   margin-top: 10px;
   border-collapse: collapse;
   border-spacing: 0;
-  width: 70%;
-  table-layout: fixed;
+  height: max-content;
+  width: 100%;
+  /* table-layout: fixed; */
   display: none;
+  animation: ani 0.3s forwards;
+}
+
+
+@keyframes ani {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
 }
 
 .addBackground {
@@ -218,7 +238,7 @@ table {
 }
 
 .data {
-  width: 70vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   background: rgba(243, 243, 243, 0.8);
@@ -293,6 +313,15 @@ td {
 
 }
 
+.hid {
+  display: flex;
+  margin-top: 40px;
+  width: 80vw;
+  height: max-content;
+  justify-content: center;
+  flex-direction: column;
+}
+
 #btn {
   position: relative;
   margin-top: 20px;
@@ -351,16 +380,15 @@ td {
 
 
 
-
-
 @media (max-width: 450px) {
   table {
-    width: 95vw;
+    width: 100%;
+    margin-bottom: 10px;
     font-size: 8px;
   }
 
   button {
-    height: 30%;
+    height: 20vw;
   }
 
   td,

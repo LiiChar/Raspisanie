@@ -1,9 +1,7 @@
 let dateDay = new Date().getDate();
 let dateMonth = +(new Date().getMonth())
   + 1;
-let table = document.createElement('table');
-let thead = document.createElement('thead');
-let tbody = document.createElement('tbody');
+let mainDiv = document.createElement('div');
 const body = document.getElementById('body')
 let loading = document.querySelector('.spinner')
 const addBackground = document.querySelector('.addBackground')
@@ -61,17 +59,12 @@ textGroup.addEventListener('click', () => {
     listGroup.addEventListener('click', () => {
       textGroup.value = grouper
       list.style.display = 'none'
-      // localStorage.setItem('group', JSON.stringify(grouper))
     })
     console.log(listGroup);
     list.append(listGroup)
   });
   textGroup.after(list)
 })
-
-table.appendChild(thead);
-table.appendChild(tbody);
-
 
 
 if (localStorage.getItem('image')) {
@@ -91,7 +84,7 @@ fetch(`https://erp.nttek.ru/api/schedule/legacy`)
   })
 
 
-body.appendChild(table);
+body.appendChild(mainDiv);
 
 async function CreateTable(date) {
   for (let i = 0; i < date.length; i++) {
@@ -107,47 +100,41 @@ async function CreateTable(date) {
           let hidden = document.createElement('div')
           hidden.innerHTML = `<div class='data' style='display: flex;'>${JSON.parse(dat)}</div>`
           hidden.className = 'hid'
-          tbody.appendChild(hidden);
+          mainDiv.appendChild(hidden);
+
+          let table = document.createElement('table');
+          table.className = `table${i}`
+          let tbody = document.createElement('tbody');
+
+          hidden.appendChild(table);
+          table.appendChild(tbody);
+
 
           hidden.addEventListener('click', (e) => unHidden(e, i))
-
+          if (dat.slice(1, 3) == dateDay) {
+            table.style.display = 'table'
+          }
 
           let Pari = data.schedule
           for (let q = 0; q < Pari.length; q++) {
             let row = document.createElement('tr');
             row.style.height = 'auto'
-            row.style.width = '70vw'
-            if (dat.slice(1, 3) != dateDay) {
-              row.style.display = 'none'
-            }
+            row.style.width = '100%'
             row.className = 'r' + i
-            hidden.appendChild(row);
-            createDay(JSON.parse(dat), row)
+            tbody.appendChild(row);
             createClass(Pari[q].lesson, row);
             createPara(Pari[q].name, row);
             createTeacher(Pari[q].teachers, row);
             createRoom(Pari[q].rooms, row);
-
           }
-
-          let margin = document.createElement('div')
-          margin.style.marginBottom = '50px'
-          tbody.appendChild(margin)
         })
     }
 
   }
   chooseImg.style.visibility = 'visible'
   loading.style.display = 'none'
-  table.style.display = 'block'
+  mainDiv.style.display = 'block'
   openMenu.style.display = 'block'
-}
-
-function createDay(text, num) {
-  let heading_1 = document.createElement('th');
-  heading_1.innerText = text;
-  num.appendChild(heading_1);
-
 }
 
 function createClass(text, num) {
@@ -223,17 +210,12 @@ mainInsertButton.addEventListener('click', (e) => {
 
 
 function unHidden(e, i) {
-  const r = document.querySelectorAll('.r' + i)
-  console.log(e.target.className);
+  const r = document.querySelector(`.table${i}`)
   if (e.target.className == 'data') {
-    if (r[0].style.display == 'table-row') {
-      r.forEach(element => {
-        element.style.display = 'none'
-      });
+    if (r.style.display == 'table') {
+      r.style.display = 'none'
     } else {
-      r.forEach(element => {
-        element.style.display = 'table-row'
-      });
+      r.style.display = 'table'
     }
   }
 
