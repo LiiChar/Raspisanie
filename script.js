@@ -8,15 +8,80 @@ const body = document.getElementById('body')
 let loading = document.querySelector('.spinner')
 const addBackground = document.querySelector('.addBackground')
 const insertBgWrap = document.querySelector('.insertBgWrap')
+const insertBgWrap1 = document.querySelector('.insertBgWrap1')
 const mainInsertButton = document.querySelector('.mainInsertButton')
 const mainInsertInput = document.querySelector('.mainInsertInput')
+const insertGroup = document.querySelector('.insertGroup')
+const textGroup = document.querySelector('.textGroup')
 const chooseImg = document.querySelector('#chooseImg')
+const openMenu = document.querySelector('.openMenu')
+const changeGroup = document.querySelector('.changeGroup')
+const menu = document.querySelector('.menu')
+const group = localStorage.getItem('group')
+
+const groups = ['Б10','1Б2', '1ГД11', '1ИС3', '1ИС6', '1ИС9', '1ПД1',
+'1ПД7', '1Ф8', '23Б10', '2Б2', '2ГД11', '2ИС3', '2ИС6',
+'2ПД1', '2ПД16', '2ПД7', '2Ф8', '34Т10', '3Б2',
+'3ГД11', '3ИС3', '3ООП6', '3ПД7', '3Т1', '3Ф8',
+'4ГД11', '4ИС3', '4ООП6', '4ПД7', '4Т1']
 
 let isLoading = true;
+
+openMenu.addEventListener('click', (e) => {
+  if (e.target.className == 'openMenu') {
+    if (menu.style.display == 'block') {
+      menu.style.display = 'none'
+    } else {
+      menu.style.display = 'block'
+    }
+  }
+})
+
+changeGroup.addEventListener('click', () => {
+  localStorage.removeItem('group')
+  window.location.reload()
+})
+
+insertGroup.addEventListener('click', () => {
+  localStorage.setItem('group', JSON.stringify(textGroup.value))
+  window.location.reload()
+})
+
+textGroup.addEventListener('click', () => {
+  const list = document.createElement('ul')
+  list.style.position = 'absolute'
+  list.style.left = '25%'
+  list.style.listStyleType = 'none'
+  list.style.width = '20%'
+  list.style.height = '20%'
+  list.style.overflow = 'auto'
+  groups.forEach(grouper => {
+    const listGroup = document.createElement('li')
+    listGroup.innerText = grouper
+    listGroup.addEventListener('click', () => {
+      textGroup.value = grouper
+      list.style.display = 'none'
+      // localStorage.setItem('group', JSON.stringify(grouper))
+    })
+    console.log(listGroup);
+    list.append(listGroup)
+  });
+  textGroup.after(list)
+})
 
 table.appendChild(thead);
 table.appendChild(tbody);
 
+
+
+if (localStorage.getItem('image')) {
+  chooseImg.src = localStorage.getItem('image')
+}
+
+if (!localStorage.getItem('group')) {
+  insertBgWrap1.style.display = 'flex'
+} else {
+  insertBgWrap1.style.display = 'none'
 
 fetch(`https://erp.nttek.ru/api/schedule/legacy`)
   .then((response) => response.json())
@@ -28,16 +93,15 @@ fetch(`https://erp.nttek.ru/api/schedule/legacy`)
 
 body.appendChild(table);
 
-// выпадающие таюлицы при нажатии даты, стандартно открывается сейгодняшняя дата
-
 async function CreateTable(date) {
   for (let i = 0; i < date.length; i++) {
     if (date[i] != undefined) {
       if (date[i].slice(0, 2) < dateDay && date[i].slice(3, 5) == dateMonth) {
         break;
       }
+      let url = `https://erp.nttek.ru/api/schedule/legacy/${date[i].slice(6, 10)}-${date[i].slice(3, 5)}-${date[i].slice(0, 2)}/group/${JSON.parse(group)}`
       let dat = JSON.stringify(date[i])
-      let a = await fetch(`https://erp.nttek.ru/api/schedule/legacy/${date[i].slice(6, 10)}-${date[i].slice(3, 5)}-${date[i].slice(0, 2)}/group/3ИС3`)
+      let a = await fetch(url)
         .then((response) => response.json())
         .then(function (data) {
           let hidden = document.createElement('div')
@@ -73,8 +137,10 @@ async function CreateTable(date) {
     }
 
   }
+  chooseImg.style.visibility = 'visible'
   loading.style.display = 'none'
   table.style.display = 'block'
+  openMenu.style.display = 'block'
 }
 
 function createDay(text, num) {
@@ -150,7 +216,7 @@ addBackground.addEventListener('click', (e) => {
 
 mainInsertButton.addEventListener('click', (e) => {
   chooseImg.style.visibility = 'visible'
-  console.log(mainInsertInput.value);
+  localStorage.setItem('image', mainInsertInput.value)
   chooseImg.src = mainInsertInput.value
   insertBgWrap.style.display = 'none'
 })
@@ -171,4 +237,5 @@ function unHidden(e, i) {
     }
   }
 
+}
 }

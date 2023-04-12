@@ -3,6 +3,20 @@ body {
   padding: 0px;
 }
 
+.openMenu {
+  display: none;
+  position: absolute;
+  font-size: 50px;
+  top: 5px;
+  right: 10px;
+}
+
+.menu {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  display: none;
+}
 
 table {
   font-size: 14px;
@@ -19,7 +33,7 @@ table {
   display: flex;
   justify-content: center;
   cursor: pointer;
-  margin: 10px;
+  margin-bottom: 10px;
 }
 
 .spinner {
@@ -181,10 +195,26 @@ table {
   height: 100vh;
 }
 
+.insertBgWrap1 {
+  position: absolute;
+  top: 0;
+  background: rgba(226, 226, 226, 0.637);
+  z-index: 10000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 98vw;
+  height: 100vh;
+}
+
 .mainInsertWrap {
   background:rgba(255, 255, 255) ;
   width: 40%;
   height: 10%;
+}
+
+.insertGroup {
+  float: right;
 }
 
 .data {
@@ -327,6 +357,10 @@ td {
   table {
     width: 95vw;
     font-size: 8px;
+  }
+
+  button {
+    height: 30%;
   }
 
   td,
