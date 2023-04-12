@@ -22,6 +22,8 @@ body {
   display: none;
 }
 
+td { word-wrap:break-word; }
+
 table {
   font-size: 14px;
   margin-top: 10px;
@@ -34,14 +36,6 @@ table {
   word-wrap: break-word;
   display: none;
   animation: ani 0.3s forwards;
-}
-
-@media only screen and (max-width: 480px) {
-    /* horizontal scrollbar for tables if mobile screen */
-    .tablemobile {
-        overflow-x: auto;
-        display: block;
-    }
 }
 
 
@@ -215,6 +209,7 @@ table {
   }
 }
 
+
 .insertBgWrap {
   position: absolute;
   top: 0;
@@ -260,8 +255,6 @@ table {
 tr,
 th {
   padding: 10px 20px;
-  white-space: pre-wrap;
-
 }
 
 
@@ -388,12 +381,15 @@ td {
 }
 
 
-
 @media (max-width: 450px) {
   table {
     width: 100%;
     margin-bottom: 10px;
     font-size: 8px;
+  }
+
+  .openMenu {
+    font-size: 30px;
   }
 
   button {
@@ -402,21 +398,16 @@ td {
 
   td,
   th {
+    word-wrap:break-word;
     padding: 5px 10px;
-  }
-
-  tbody th:nth-child(1) {
-    white-space: nowrap;
   }
   
   tbody th:nth-child(1) {
-    white-space: nowrap;
     padding: 5px 10px;
     padding-right: 2px;
   }
 
     tbody th:nth-child(2) {
-    white-space: nowrap;
     padding-left: 0px;
   }
 
