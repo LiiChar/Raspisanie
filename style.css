@@ -450,11 +450,12 @@ td {
   }
 
   .openMenu {
+    margin-top: 10px;
     font-size: 30px;
   }
   
   .menu {
-    font-size: 8px;
+    font-size: 14px;
   }
 
   button {
