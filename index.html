@@ -14,10 +14,24 @@
     <img id="chooseImg" src="" alt="">
     <div class="openMenu">&#8801;</div>
     <div class="menu">
-      <div class="addBackground">Добавить задний фон</div>
-      <div class="changeGroup">Изменить группу</div>
+      <div class="addBackground">Фон</div>
+      <div>
+        <div class="Customize">Кастомизация</div> 
+        <div class="changeColor">
+          <div><input class="textColor" type="text" placeholder="Цвет текста"></div>
+          <div><input class="dateColor" type="text" placeholder="Цвет даты"></div>
+          <div><input class="oddColor" type="text" placeholder="Цвет чётных"></div>
+          <div><input class="evenColor" type="text" placeholder="Цвет нечётных"></div>
+          <div style="display: flex; flex-direction: row; justify-content: space-around;">
+            <div class="update">Обновить</div>
+            <div class="default">Сбросить</div>
+          </div>
+        </div>
+      </div>
+      <div class="hiddenTable">Таблцы</div>
+      <div class="changeGroup">Группа</div>
     </div>
-    <div id="body"></div>
+    <div id="body" class="hiddenTableCss" style="display: flex;"></div>
     <div class="spinner">
         <div class="blob top"></div>
         <div class="blob bottom"></div>
