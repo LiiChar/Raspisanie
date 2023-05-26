@@ -379,12 +379,17 @@ td {
 .hid {
   display: flex;
   margin-top: 40px;
+<<<<<<< HEAD
   width: 60vw;
+=======
+  width: 80vw;
+>>>>>>> 229bc301e6b14dcca3f097c98056c0ba1683d8a1
   height: max-content;
   justify-content: center;
   flex-direction: column;
 }
 
+<<<<<<< HEAD
 .textGroup {
   width: 60vw;
   height: 20px;
@@ -398,6 +403,8 @@ td {
 }
 
 
+=======
+>>>>>>> 229bc301e6b14dcca3f097c98056c0ba1683d8a1
 #btn {
   position: relative;
   margin-top: 20px;
