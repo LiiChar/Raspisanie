@@ -11,17 +11,45 @@
 </head>
 
 <body>
-    <img id="img" width="52%" height="100%" src="" alt="">
-    <div id="body"></div>
-    <button id="btn" type="text"></button>
-    <div id="chooseImg">
-        <div id="Ob">
-            <img class="Anime" id="Akame" width="30vw" height="60vh" src="./Akame.jpg" alt="Akame">
-            <img class="Anime" id="Mikasa" width="30vw" height="60vh" src="./Mikasa.jpg" alt="Mikasa">
-            <img class="Anime" id="Zorro" width="30vw" height="60vh" src="./Zorro.jpg" alt="Zorro">
+    <img id="chooseImg" src="" alt="">
+    <div class="openMenu">&#8801;</div>
+    <div class="menu">
+      <div class="addBackground">Фон</div>
+      <div>
+        <div class="Customize">Кастомизация</div> 
+        <div class="changeColor">
+          <div><input class="textColor" type="text" placeholder="Цвет текста"></div>
+          <div><input class="dateColor" type="text" placeholder="Цвет даты"></div>
+          <div><input class="oddColor" type="text" placeholder="Цвет чётных"></div>
+          <div><input class="evenColor" type="text" placeholder="Цвет нечётных"></div>
+          <div style="display: flex; flex-direction: row; justify-content: space-around;">
+            <div class="update">Обновить</div>
+            <div class="default">Сбросить</div>
+          </div>
         </div>
+      </div>
+      <div class="hiddenTable">Таблцы</div>
+      <div class="changeGroup">Группа</div>
     </div>
-    <script src="script.js"></script>
+    <div id="body" class="hiddenTableCss" style="display: flex;"></div>
+    <div class="spinner">
+        <div class="blob top"></div>
+        <div class="blob bottom"></div>
+        <div class="blob left"></div>
+        
+        <div class="blob move-blob"></div>
+      </div>
+      <div class="insertBgWrap">
+            <div>Вставте ссылку на излбражение</div>
+            <div><textarea type="text" class="mainInsertInput"></textarea></div>
+              <div><button class="mainInsertButton" type="button">задать</button></div>
+      </div> 
+      <div class="insertBgWrap1">
+            <div>Укажите вашу группу</div>
+            <div><input type="text" class="textGroup"></div>
+            <div></div><button class="insertGroup" type="button">задать</button></div>
+      </div>
+    <script src="./script.js"></script>
 </body>
 
 </html>
