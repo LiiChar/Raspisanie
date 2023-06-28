@@ -379,7 +379,7 @@ td {
 .hid {
   display: flex;
   margin-top: 40px;
-  width: 60vw;
+  width: 70vw;
   height: max-content;
   justify-content: center;
   flex-direction: column;
