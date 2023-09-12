@@ -74,6 +74,7 @@ defaulter.addEventListener('click', () => {
   body.style.color = 'black'
   menu.style.color = 'black'
   openMenu.style.color = 'black'
+
   const data = document.querySelectorAll('.data')
   data.forEach(element => {
     element.style.background = `rgba(243, 243, 243, 0.8)`
@@ -96,19 +97,22 @@ defaulter.addEventListener('click', () => {
 })
 
 update.addEventListener('click', () => {
+  const coloful = {}
   if (textColor.value) {
     body.style.color = textColor.value
     menu.style.color = textColor.value
     openMenu.style.color = textColor.value
+    coloful.textColor = textColor.value
   }
-  if (dateColor.value) {
+  if (dateColor.value && dateColor.value != '#000000') {
     const dataCol = document.querySelectorAll('.data')
     dataCol.forEach(element => {
       element.style.background = dateColor.value
       element.style.border = `1px solid ${dateColor.value}`
     });
+    coloful.dateColor = dateColor.value
   }
-  if(oddColor.value && evenColor.value) {
+  if(oddColor.value && oddColor.value != '#000000' && evenColor.value && evenColor.value != '#000000') {
     let i = 0
 
     const row = document.querySelectorAll('#row')
@@ -121,13 +125,10 @@ update.addEventListener('click', () => {
       }
       i++
     });
+    coloful.oddColor = oddColor.value
+    coloful.evenColor = evenColor.value
   }
-  const coloful = {
-    textColor: textColor.value,
-    dateColor: dateColor.value,
-    oddColor: oddColor.value,
-    evenColor: evenColor.value
-  }
+
   localStorage.setItem('color', JSON.stringify(coloful))
   changeColor.style.display = 'none'
 })
@@ -154,6 +155,27 @@ Customize.addEventListener('click', () => {
     changeColor.style.display = 'none'
   } else {
     changeColor.style.display = 'block'
+    const celr = JSON.parse(clr)
+    if (celr.textColor) {
+      textColor.value = celr.textColor
+    } else {
+      textColor.value = '#ffffff'
+    }
+    if (celr.dateColor) {
+      dateColor.value = celr.dateColor
+    } else {
+      dateColor.value = '#f5f5f5'
+    }
+    if(celr.value) {
+      oddColor.value = celr.oddColor
+    } else {
+      oddColor.value = '#f5f5f5'
+    }
+    if(celr.value) {
+      evenColor.value = celr.evenColor
+    } else {
+      evenColor.value = '#fffff1'
+    }
   }
 })
 
@@ -230,7 +252,7 @@ if (!localStorage.getItem('group')) {
           .then((response) => response.json())
           .then(function (data) {
             let hidden = document.createElement('div')
-            hidden.innerHTML = `<div class='data' style='display: flex;'>${JSON.parse(dat)}</div>`
+            hidden.innerHTML = `<div class='data' style='display: flex;'>${JSON.parse(dat)}(${getDayOfWeek(`${date[i].slice(6, 10)}-${date[i].slice(3, 5)}-${date[i].slice(0, 2)}`)})</div>`
             hidden.className = 'hid'
             mainDiv.appendChild(hidden);
 
@@ -312,7 +334,7 @@ if (!localStorage.getItem('group')) {
     } else if (text == '4') {
       return `10:40 - 11:20`
     } else if (text == '5') {
-      return `11:30 - 12:10 `
+      return `11:20 - 12:00 `
     } else if (text == '6-7') {
       return `12:10 - 13:30 `
     } else if (text == '8-9') {
@@ -355,4 +377,10 @@ if (!localStorage.getItem('group')) {
     }
 
   }
+}
+
+function getDayOfWeek(date) {
+  const dayOfWeek = new Date(date).getDay();    
+  return isNaN(dayOfWeek) ? null : 
+    ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'][dayOfWeek];
 }

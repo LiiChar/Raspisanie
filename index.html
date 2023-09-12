@@ -2,54 +2,71 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./iconImg.png" />
-    <link rel="stylesheet" href="style.css">
-    <title>Расписание</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./iconImg.png" />
+  <link rel="stylesheet" href="style.css">
+  <title>Расписание</title>
 </head>
 
 <body>
-    <img id="chooseImg" src="" alt="">
-    <div class="openMenu">&#8801;</div>
-    <div class="menu">
-      <div class="addBackground">Фон</div>
+  <img id="chooseImg" src="" alt="">
+  <div class="openMenu">&#8801;</div>
+  <div class="menu">
+    <div class="menuWrapper">
+
+      <div class="addBackground" id="menuElement">Фон</div>
       <div>
-        <div class="Customize">Кастомизация</div> 
+        <div class="Customize" id="menuElement">Кастомизация</div>
         <div class="changeColor">
-          <div><input class="textColor" type="text" placeholder="Цвет текста"></div>
-          <div><input class="dateColor" type="text" placeholder="Цвет даты"></div>
-          <div><input class="oddColor" type="text" placeholder="Цвет чётных"></div>
-          <div><input class="evenColor" type="text" placeholder="Цвет нечётных"></div>
+          <div>
+            <label for="textColor">Цвет текста</label>
+            <input id="textColor" class="textColor customInput" type="color" placeholder="Цвет текста">
+          </div>
+          <div>
+            <label for="dateColor">Цвет даты</label>
+            <input id="dateColor" class="dateColor customInput" type="color" placeholder="Цвет даты">
+          </div>
+          <div>
+            <label for="oddColor">Цвет чётных строк</label>
+            <input id="oddColor" class="oddColor customInput" type="color" placeholder="Цвет чётных">
+          </div>
+          <div>
+            <label for="evenColor">Цвет нечётных строк</label>
+            <input id="evenColor" class="evenColor customInput" type="color" placeholder="Цвет нечётных">
+          </div>
           <div style="display: flex; flex-direction: row; justify-content: space-around;">
             <div class="update">Обновить</div>
             <div class="default">Сбросить</div>
           </div>
         </div>
       </div>
-      <div class="hiddenTable">Таблцы</div>
-      <div class="changeGroup">Группа</div>
+      <div class="hiddenTable" id="menuElement">Таблцы</div>
+      <div class="changeGroup" id="menuElement">Группа</div>
     </div>
-    <div id="body" class="hiddenTableCss" style="display: flex;"></div>
-    <div class="spinner">
-        <div class="blob top"></div>
-        <div class="blob bottom"></div>
-        <div class="blob left"></div>
-        
-        <div class="blob move-blob"></div>
-      </div>
-      <div class="insertBgWrap">
-            <div>Вставте ссылку на излбражение</div>
-            <div><textarea type="text" class="mainInsertInput"></textarea></div>
-              <div><button class="mainInsertButton" type="button">задать</button></div>
-      </div> 
-      <div class="insertBgWrap1">
-            <div>Укажите вашу группу</div>
-            <div><input type="text" class="textGroup"></div>
-            <div></div><button class="insertGroup" type="button">задать</button></div>
-      </div>
-    <script src="./script.js"></script>
+
+  </div>
+  <div id="body" class="hiddenTableCss" style="display: flex;"></div>
+  <div class="spinner">
+    <div class="blob top"></div>
+    <div class="blob bottom"></div>
+    <div class="blob left"></div>
+
+    <div class="blob move-blob"></div>
+  </div>
+  <div class="insertBgWrap">
+    <div>Вставте ссылку на излбражение</div>
+    <div><textarea type="text" class="mainInsertInput"></textarea></div>
+    <div><button class="mainInsertButton" type="button">задать</button></div>
+  </div>
+  <div class="insertBgWrap1">
+    <div>Укажите вашу группу</div>
+    <div><input type="text" class="textGroup"></div>
+    <div></div><button class="insertGroup" type="button">задать</button>
+  </div>
+  </div>
+  <script src="./script.js"></script>
 </body>
 
 </html>
