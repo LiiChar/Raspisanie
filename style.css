@@ -19,6 +19,8 @@ body {
 }
 
 .openMenu {
+  top: 0;
+
   height: 5vh;
   display: none;
   z-index: 10000;
@@ -29,6 +31,7 @@ body {
 
 .menu {
   position: absolute;
+  top: 0;
   font-size: 16px;
   display: none;
   width: 100vw;
@@ -505,14 +508,12 @@ td {
   }
 
   .openMenu {
-    margin-top: 4px;
     font-size: 30px;
   }
 
   
   
   .menu {
-    margin-top: 10px;
     font-size: 14px;
   }
 
