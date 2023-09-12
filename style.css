@@ -508,10 +508,16 @@ td {
     margin-top: 4px;
     font-size: 30px;
   }
+
+  
   
   .menu {
     margin-top: 10px;
     font-size: 14px;
+  }
+
+  .menuWrapper {
+    width: 80%;
   }
 
   button {
