@@ -19,7 +19,7 @@ body {
 }
 
 .openMenu {
-  margin-top: -10px;
+  height: 5vh;
   display: none;
   z-index: 10000;
   position: absolute;
