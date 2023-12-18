@@ -691,7 +691,7 @@ function print() { __p += __j.call(arguments, '') }
     /* width: 100%; */
     background-color: ${e=>e.theme.colors.main};
     text-wrap: balance;
-    
+    height: 100lvh; 
   }
   
   #root {
