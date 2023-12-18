@@ -683,14 +683,16 @@ function print() { __p += __j.call(arguments, '') }
 
   html,
   body {
-    width: 100%;
+    /* width: 100%; */
     background-color: ${e=>e.theme.colors.main};
     text-wrap: balance;
+    
   }
   
   #root {
     width: 100%;
-    height: 100%; 
+    height: 100lvh; 
+    overflow: auto;
   }
 
   input {
@@ -737,7 +739,7 @@ function print() { __p += __j.call(arguments, '') }
   position: fixed;
   top: 0;
   left: 0;
-  width: 100lvw;
+  width: 100vw;
   height: 100lvh;
   z-index: 4;
   background: url(${e=>e.$src}) no-repeat center center fixed;
