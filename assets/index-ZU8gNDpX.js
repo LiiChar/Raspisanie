@@ -696,7 +696,7 @@ function print() { __p += __j.call(arguments, '') }
   
   #root {
     width: 100%;
-    height: 100lvh; 
+    min-height: 100vh; 
     overflow: auto;
   }
 
