@@ -50,74 +50,75 @@ Error generating stack: `+u.message+`
     transform: translateX(0);
   }
 `,rR=q.aside`
-  top: 0;
-  left: 0;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(17, 17, 17, 0.3);
-  display: flex;
-  justify-content: end;
-  z-index: 10;
+	top: 0;
+	left: 0;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(17, 17, 17, 0.3);
+	display: flex;
+	justify-content: end;
+	z-index: 10;
 `,iR=q.article`
-  background-color: ${e=>e.theme.colors.bg};
-  height: 100%;
-  padding: 30px 0;
-  z-index: 6;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 15px;
-  animation: ${nR} 0.5s ease-in;
-  transition: left 0.5s ease-in;
+	background-color: ${e=>e.theme.colors.bg};
+	height: 100%;
+	padding: 30px 0;
+	z-index: 6;
+	min-width: 80vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 15px;
+	animation: ${nR} 0.5s ease-in;
+	transition: left 0.5s ease-in;
 
-  @media (max-width: 350px) {
-    width: 200px;
-  }
+	@media (max-width: 350px) {
+		width: 200px;
+	}
 
-  @media ${fe.mobileM} {
-    width: 60%;
-  }
+	@media ${fe.mobileM} {
+		width: 60%;
+	}
 
-  @media ${fe.tablet} {
-    width: 40%;
-  }
+	@media ${fe.tablet} {
+		width: 40%;
+	}
 
-  @media ${fe.laptop} {
-    width: 30%;
-  }
+	@media ${fe.laptop} {
+		width: 30%;
+	}
 `,oi=q.div`
-  padding: 0 20px;
-  height: 6%;
-  display: flex;
-  align-items: center;
-  color: ${e=>e.theme.colors.font};
-  cursor: pointer;
-  user-select: none;
-  &:hover {
-    background-color: ${e=>e.$isHover?"transparent":e.theme.colors.accent};
-  }
+	padding: 0 20px;
+	height: 6%;
+	display: flex;
+	align-items: center;
+	color: ${e=>e.theme.colors.font};
+	cursor: pointer;
+	user-select: none;
+	&:hover {
+		background-color: ${e=>e.$isHover?"transparent":e.theme.colors.accent};
+	}
 `,oR=q.div`
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 `,lR=q.div`
-  height: min-content;
+	height: min-content;
 `,zf=q.input`
-  &:checked + label:after,
-  &:not(:checked) + label:after {
-    left: 3px;
-    top: 4px;
-    width: 10px;
-    height: 5px;
-    border-radius: 1px;
-    border-left: 4px solid #e145a3;
-    border-bottom: 4px solid #e145a3;
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-  }
+	&:checked + label:after,
+	&:not(:checked) + label:after {
+		left: 3px;
+		top: 4px;
+		width: 10px;
+		height: 5px;
+		border-radius: 1px;
+		border-left: 4px solid #e145a3;
+		border-bottom: 4px solid #e145a3;
+		-webkit-transform: rotate(-45deg);
+		-moz-transform: rotate(-45deg);
+		-o-transform: rotate(-45deg);
+		-ms-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+	}
 `,uR={theme:Wl,toggleTheme:()=>{},isLightTheme:!1,setTheme:()=>{}},ow=Y.createContext(uR),nh=()=>Y.useContext(ow),sR=Y.memo(({children:e})=>{const[t,n]=Y.useState(Wl),[i,l]=Y.useState(!1),a={theme:t,toggleTheme:()=>{t.type===Oa.light?(n(Wl),l(!1)):(n(Hd),l(!0))},isLightTheme:i,setTheme:n};return N.jsx(ow.Provider,{value:a,children:N.jsx(GT,{theme:t,children:e})})}),aR=q.button`
   width: 40px;
   height: 40px;
@@ -743,49 +744,49 @@ function print() { __p += __j.call(arguments, '') }
     transform: translateX(0);
   }
 `,VA=q.div`
-  position: fixed;
-  z-index: 100;
-  top: 13px;
-  right: 6px;
-  width: 30px;
-  height: 35px;
-  fill: ${e=>e.theme.colors.font};
-  stroke: ${e=>e.theme.colors.font};
-  cursor: pointer;
+	position: fixed;
+	z-index: 100;
+	top: 13px;
+	right: 6px;
+	width: 30px;
+	height: 35px;
+	fill: ${e=>e.theme.colors.font};
+	stroke: ${e=>e.theme.colors.font};
+	cursor: pointer;
 
-  @media (min-width: 900px) {
-    top: 13px;
-    right: 30px;
-    width: 45px;
-    height: 45px;
-  }
+	@media (min-width: 900px) {
+		top: 13px;
+		right: 30px;
+		width: 45px;
+		height: 45px;
+	}
 `,KA=q.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100lvh;
-  z-index: 4;
-  background: url(${e=>e.$src}) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100dvh;
+	z-index: 4;
+	background: url(${e=>e.$src}) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 `,QA=q.div`
-  position: fixed;
-  display: none;
-  z-index: 100;
-  top: 13px;
-  right: 6px;
-  width: 30px;
-  height: 35px;
-  cursor: pointer;
-  color: ${e=>e.theme.colors.font};
-  fill: ${e=>e.theme.colors.font};
-  stroke: ${e=>e.theme.colors.font};
-  animation: ${GA} 0.5s ease-in;
+	position: fixed;
+	display: none;
+	z-index: 100;
+	top: 13px;
+	right: 6px;
+	width: 30px;
+	height: 35px;
+	cursor: pointer;
+	color: ${e=>e.theme.colors.font};
+	fill: ${e=>e.theme.colors.font};
+	stroke: ${e=>e.theme.colors.font};
+	animation: ${GA} 0.5s ease-in;
 
-  @media (max-width: 350px) {
-    display: block;
-  }
+	@media (max-width: 350px) {
+		display: block;
+	}
 `,YA=Y.memo(()=>{const{backgroundImage:e}=Ci(),{setToggleModal:t,isVisibleModal:n,hideModal:i}=ki();return N.jsxs(N.Fragment,{children:[!n("AsidePanel")&&N.jsx(VA,{onClick:()=>t("AsidePanel"),children:N.jsx(pR,{style:{width:"100%",height:"100%"}})}),e&&N.jsx(KA,{$src:e}),n("AsidePanel")&&N.jsx(QA,{onClick:()=>i("AsidePanel"),children:N.jsx(hR,{})})]})});bf.createRoot(document.getElementById("root")).render(N.jsx(ie.StrictMode,{children:N.jsx(sR,{children:N.jsx(vR,{children:N.jsxs(cP,{children:[N.jsx(bA,{}),N.jsx(YA,{}),N.jsx(HA,{})]})})})}));
